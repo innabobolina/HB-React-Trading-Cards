@@ -1,14 +1,13 @@
 class Homepage extends React.Component {
-	render(){
-		return (
-         <div>
-            <p>Hello, welcome to Trading card site!</p><br></br>
-            <a href="/cards">Click here to view cards.</a><br/><br/>
-            <img src="/static/img/balloonicorn.jpg" />
-
-        </div>
-        );    
-	}
+  render() {
+    return (
+      <div>
+        <h1>Welcome to Balloonicorn's Trading Card Site!<h1>
+        <a href="/cards">Go to the cards page</a>
+        <img href="/static/img/balloonicorn.jpg" />
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<Homepage />, document.getElementById('app'));

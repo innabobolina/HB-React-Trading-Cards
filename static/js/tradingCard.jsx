@@ -1,25 +1,3 @@
-class TradingCard extends React.Component {
-	render() {
-		return (
-			<div className="card">
-				<h2>Name: {this.props.name}</h2>
-				<img src={this.props.imgUrl} />
-				<h2>Skill: {this.props.skill}</h2>
-			</div>
-		);
-	}
-}
-
-class TradingCardComponent extends React.Component {
-	render() {
-		return (
-			<div>
-				Success!
-			</div>
-			)
-	}
-}
-
 const tradingCardData = [
   {
     name: 'Balloonicorn',
@@ -72,18 +50,41 @@ const tradingCardData = [
 ];
 
 
-for (let card of tradingCardData) {
-	console.log(card.name, card.skill);
-	}
+class TradingCard extends React.Component {
+  render() {
+    return (
+      <div className="card">
+        <h2>Name: {this.props.name}</h2>
+        <img src={this.props.imgUrl} />
+        <h2>Skill: {this.props.skill}</h2>
+      </div>
+    );
+  }
+}
 
+class TradingCardContainer extends React.Component {
+  render() {
+    const tradingCards = [];
 
+    for (const currentCard of tradingCardData) {
+      tradingCards.push(
+        <TradingCard
+          name={currentCard.name}
+          skill={currentCard.skill}
+          imageUrl={currentCard.imageUrl}
+        />
+      );
+    }
+
+    return (
+      <div>
+        {tradingCards}
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
-	<TradingCard name="Balloonicorn" skill="video games" imgUrl="/static/img/balloonicorn.jpg" />, 
-	document.getElementById('balloonicorn') 
-);
-
-ReactDOM.render(
-	<TradingCardComponent />, 
-	document.getElementById('container')
+  <TradingCardContainer />,
+  document.getElementById('all-cards')
 );
